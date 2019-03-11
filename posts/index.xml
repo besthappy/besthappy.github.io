@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on Besthappy</title>
+		<link>https://besthappy.github.io/posts/</link>
+		<description>Recent content in Posts on Besthappy</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>ko-kr</language>
+		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+		<lastBuildDate>Mon, 11 Mar 2019 21:46:41 +0900</lastBuildDate>
+		<atom:link href="https://besthappy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Test1</title>
+			<link>https://besthappy.github.io/posts/test1/</link>
+			<pubDate>Mon, 11 Mar 2019 21:46:41 +0900</pubDate>
+			
+			<guid>https://besthappy.github.io/posts/test1/</guid>
+			<description>테스트 블로그 고고싱 function(){ console.log(&amp;#39;test&amp;#39;) }</description>
+			<content type="html"><![CDATA[
+
+<h2 id="테스트-블로그">테스트 블로그</h2>
+
+<p>고고싱</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>]]></content>
+		</item>
+		
+	</channel>
+</rss>
