@@ -7,25 +7,111 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>ko-kr</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Mon, 11 Mar 2019 21:46:41 +0900</lastBuildDate>
+		<lastBuildDate>Wed, 13 Mar 2019 01:06:35 +0900</lastBuildDate>
 		<atom:link href="https://besthappy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
-			<title>Test1</title>
-			<link>https://besthappy.github.io/posts/test1/</link>
-			<pubDate>Mon, 11 Mar 2019 21:46:41 +0900</pubDate>
+			<title>Static Site의 작동방식</title>
+			<link>https://besthappy.github.io/posts/what_static_site/</link>
+			<pubDate>Wed, 13 Mar 2019 01:06:35 +0900</pubDate>
 			
-			<guid>https://besthappy.github.io/posts/test1/</guid>
-			<description>테스트 블로그 고고싱 function(){ console.log(&amp;#39;test&amp;#39;) }</description>
+			<guid>https://besthappy.github.io/posts/what_static_site/</guid>
+			<description>Static Site는 뭐지? 이미 만들어진 파일을 클라이언트가 요청할 때 파일 그대로 전송하는 사이트라고 할 수 있다 인터넷 초창기에 html 파일 형식의 웹사이트가 대표적인 예이</description>
 			<content type="html"><![CDATA[
 
-<h2 id="테스트-블로그">테스트 블로그</h2>
+<h1 id="static-site는-뭐지">Static Site는 뭐지?</h1>
 
-<p>고고싱</p>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span><span class="p">(){</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>]]></content>
+<ul>
+<li>이미 만들어진 파일을 클라이언트가 요청할 때 파일 그대로 전송하는 사이트라고 할 수 있다</li>
+<li>인터넷 초창기에 html 파일 형식의 웹사이트가 대표적인 예이다</li>
+<li>서버는 저장장치에 저장된 파일을 요청이 들어올 때 전송해주는 역할만 한다</li>
+<li>위의 특징 때문에 실시간으로 무언가 정보를 가공해야 하는 작업에선 사용하지 않는다<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></li>
+</ul>
+
+<h2 id="프로세스">프로세스</h2>
+
+<ol>
+<li>필요한 파일을 html 형식으로 만든다</li>
+<li>서버에 접속하여 적합한 경로에 작성한 html 파일을 업로드한다</li>
+<li>웹브라우저로 해당 파일의 경로로 접속하여 확인한다</li>
+</ol>
+
+<h2 id="문제점">문제점</h2>
+
+<ul>
+<li>잘 정리된 문서 작성에는 시간과 노력이 필수적인데 html 태그가 추가되어 비효율적임</li>
+<li>html의 장점인 링크 기능을 추가하려면 작성중인 문서 뿐만 아니라 이미 작성된 문서도 수정해야함<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup></li>
+<li>위와 같은 이유로 html의 장점을 활용하기엔 따르는 시간과 노력이 필수로 요구된다</li>
+</ul>
+
+<h2 id="1차-대안">1차 대안</h2>
+
+<ul>
+<li>MARKDOWN을 이용한다</li>
+</ul>
+
+<h3 id="markdown">MARKDOWN?</h3>
+
+<ul>
+<li>일반 텍스트문서에 양식을 쉽게 편집하기 위한 규칙을 추가한 문법</li>
+<li>이 문법의 규칙을 준수할 경우 html 문서등 다른 포멧의 문서로 변환이 가능하고 변환된 결과도 예측 가능</li>
+<li>변환한 문서의 형태를 예측 가능함으로서 동일한 서식 및 형태로 작업이 용이</li>
+<li>문서 작성에 필요한 도구는 오로지 텍스트 편집기 뿐이다</li>
+</ul>
+
+<h3 id="markdown-to-html">MARKDOWN to HTML</h3>
+
+<ul>
+<li>문서를 MARKDOWN 규칙에 맞도록 작성한 뒤, Tool을 이용 html로 변환</li>
+<li>변환된 문서를 서버에 업로드하면 반영</li>
+</ul>
+
+<h2 id="1차-대안의-문제점">1차 대안의 문제점</h2>
+
+<ul>
+<li>문서와 문서 사이의 관계를 정의하는 링크 기능은 여전히 수작업에 의존해야 한다</li>
+<li>직관적이지 않은 html 문법에서 해방되었지만 여전히 위 방식으로 Site로 운영하는 데에는 한계가 있다</li>
+</ul>
+
+<h2 id="2차-대안">2차 대안</h2>
+
+<ul>
+<li>위 문제들을 해결하고자 익히 들어온 ASP, PHP, Node Express 등등이 활용되고 있다</li>
+<li>서버에서 요청이 들어올 때 이미 작성된 html이 아닌 스크립트 파일을 불러와 html을 동적으로 생성해 제공한다</li>
+<li>링크 뿐만 아니라 수시로 변경되는 정보들 또한 처리가 가능해졌다</li>
+<li>그에 따른 서버의 리소스도 증가하며, 사용자도 해당 스크립트 언어를 운영에 필요한 정도까지는 익혀야 한다</li>
+</ul>
+
+<h2 id="해결은-되지만-static-site는-아니다">해결은 되지만 Static Site는 아니다</h2>
+
+<ul>
+<li>1차 대안에서의 포인트는 서버에 요청이 들어왔을 때 스크립트 파일을 html로 변환한다는 점이다</li>
+<li>서버가 스크립트 파일을 변환하는 것 처럼 미리 html로 변환한 다음에 서버에 업로드하면 결과는 비슷하다<sup class="footnote-ref" id="fnref:3"><a href="#fn:3">3</a></sup></li>
+</ul>
+
+<h3 id="static-page-generator">Static Page Generator</h3>
+
+<ul>
+<li>MARKDOWN 문서를 html 문서로 변환하는 기능에 추가하여 문서끼리의 링크도 자동으로 생성해준다</li>
+<li>Github 사이트에서 이 기능을 이용, 서비스를 제공하며 널리 쓰이게 되었다</li>
+<li>널리 쓰이는 만큼 실사용에 무리가 없다는 증거이며 그에 따른 지원도 많은 편이다</li>
+<li>이제까지 서술한 문제의 대안이며, 실제로 이 기능을 사용하여 사이트를 운영할 것이다</li>
+<li>대표적인 것으로 Github에서 사용하는 Jekyll, Hugo등이 있다</li>
+</ul>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">티켓 예매 사이트, 쇼핑몰
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">이미 작성된 문서와 연관된 문서를 작성하고 서로 링크를 만든다고 가정했을 때, 작성중인 문서는 그냥 추가하면 될 일이지만 이미 작성된 문서도 다시 열어 링크를 추가해야 한다. 시리즈로 제작한다고 하면 매 회마다 이 작업을 반복해야 하므로 매우 비효적일 수 밖에 없다
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3">결과가 동일하지 않은 이유는 실시간으로 변경되는 정보를 처리할 방법이 없기 때문이다. html을 만든 시점 이후의 정보는 재변환 과정을 거치지 않는 이상 업데이트되지 않는다
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+]]></content>
 		</item>
 		
 	</channel>
